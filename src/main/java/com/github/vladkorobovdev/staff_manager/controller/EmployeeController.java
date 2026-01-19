@@ -4,6 +4,7 @@ import com.github.vladkorobovdev.staff_manager.dto.EmployeeCreateDto;
 import com.github.vladkorobovdev.staff_manager.dto.EmployeeFullDto;
 import com.github.vladkorobovdev.staff_manager.dto.EmployeeShortDto;
 import com.github.vladkorobovdev.staff_manager.service.EmployeeService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,7 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public EmployeeFullDto create(@RequestBody EmployeeCreateDto dto) {
+    public EmployeeFullDto create(@RequestBody @Valid EmployeeCreateDto dto) {
         return employeeService.createEmployee(
                 dto.getFirstName(),
                 dto.getLastName(),
