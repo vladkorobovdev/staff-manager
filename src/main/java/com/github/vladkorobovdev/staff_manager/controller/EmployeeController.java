@@ -5,6 +5,7 @@ import com.github.vladkorobovdev.staff_manager.dto.EmployeeFullDto;
 import com.github.vladkorobovdev.staff_manager.dto.EmployeeShortDto;
 import com.github.vladkorobovdev.staff_manager.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class EmployeeController {
     private final EmployeeService employeeService;
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<EmployeeShortDto> getAll() {
         return employeeService.getAll();
     }
