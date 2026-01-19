@@ -3,3 +3,5 @@ databaseChangeLog:
       file: db/changelog/changes/01-init-db.sql
   - include:
       file: db/changelog/changes/02-add-role-remove-is-active.sql
+  - include:
+      file: db/changelog/changes/03-create-refresh-token.sql
