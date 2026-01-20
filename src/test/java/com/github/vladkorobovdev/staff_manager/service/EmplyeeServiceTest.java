@@ -63,7 +63,7 @@ public class EmplyeeServiceTest {
         when(employeeMapper.toFullDto(savedEmployee)).thenReturn(expectedDto);
 
         EmployeeFullDto result = employeeService.createEmployee(
-                "John", "Doe", email, rawPassword, deptName, BigDecimal.valueOf(1000), Role.USER
+                "John", "Doe", email, rawPassword, deptName, BigDecimal.valueOf(1000)
         );
 
         assertNotNull(result);

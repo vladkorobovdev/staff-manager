@@ -30,7 +30,4 @@ public class EmployeeCreateDto {
     @NotNull(message = "Salary cannot be empty")
     @Min(value = 0, message = "Salary cannot be negative")
     private BigDecimal salary;
-
-    @NotNull(message = "Role cannot be empty")
-    private Role role;
 }

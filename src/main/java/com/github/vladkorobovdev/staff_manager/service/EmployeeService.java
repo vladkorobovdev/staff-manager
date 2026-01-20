@@ -30,8 +30,7 @@ public class EmployeeService {
             String email,
             String password,
             String departmentName,
-            BigDecimal salary,
-            Role role
+            BigDecimal salary
     ) {
         Department department = departmentService.getByName(departmentName);
 
@@ -40,7 +39,7 @@ public class EmployeeService {
         employee.setLastName(lastName);
         employee.setEmail(email);
         employee.setSalary(salary);
-        employee.setRole(role);
+        employee.setRole(Role.USER);
         employee.setDepartment(department);
         employee.setPassword(passwordEncoder.encode(password));
 

@@ -31,8 +31,7 @@ public class EmployeeController {
                 dto.getEmail(),
                 dto.getPassword(),
                 dto.getDepartmentName(),
-                dto.getSalary(),
-                dto.getRole()
+                dto.getSalary()
         );
     }
 }
