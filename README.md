@@ -97,16 +97,25 @@ On the first launch, the application automatically initializes an Admin user (vi
 
 ---
 
-## 📖 API Documentation
+## 📖 API Documentation & Testing
 
-Once the application is running, you can explore and test the API endpoints using the interactive Swagger UI:
+The project implements the **OpenAPI 3.0** specification using `springdoc-openapi`. The interactive Swagger UI allows you to explore endpoints, view DTO schemas, and test requests directly from the browser.
 
+### 🔗 Accessing Swagger UI
+Once the application is running, navigate to:
 👉 **[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)**
 
-**Example Endpoints:**
-* `POST /auth/login` — Authenticate and receive tokens.
-* `GET /api/employees` — Get all employees (Admin only).
-* `PUT /api/profile/details` — Update personal profile information.
+### 🔐 How to Authenticate
+Most endpoints are secured. To test them within Swagger UI:
+
+1.  **Get a Token:** Expand the `auth-controller` section and execute `POST /auth/login` with valid credentials (e.g., the default admin).
+2.  **Copy the Access Token:** Copy the `accessToken` string from the response body.
+3.  **Authorize:**
+    * Click the green **Authorize** button at the top right of the Swagger page.
+    * In the "Value" field, enter the token.
+    * Click **Authorize** and then **Close**.
+4.  **Test:** Now you can execute protected requests (e.g., `GET /api/employees`) directly from the UI.
+
 
 ---
 
