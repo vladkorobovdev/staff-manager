@@ -22,6 +22,7 @@ public class DepartmentController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public DepartmentDto create(@RequestParam String name) {
         return departmentService.createDepartment(name);
     }
