@@ -1,6 +1,7 @@
 package com.github.vladkorobovdev.staff_manager.service;
 
 import com.github.vladkorobovdev.staff_manager.dto.DepartmentDto;
+import com.github.vladkorobovdev.staff_manager.dto.DepartmentFullDto;
 import com.github.vladkorobovdev.staff_manager.entity.Department;
 import com.github.vladkorobovdev.staff_manager.mapper.DepartmentMapper;
 import com.github.vladkorobovdev.staff_manager.repository.DepartmentRepository;
@@ -35,5 +36,43 @@ public class DepartmentService {
         return departmentRepository.findAll().stream()
                 .map(departmentMapper::toDepartmentDto)
                 .toList();
+    }
+
+    public DepartmentFullDto getDepartmentWithEmployees(Long id) {
+        Department department = departmentRepository.findByIdWithEmployees(id)
+                .orElseThrow(() -> new RuntimeException("Department not found"));
+
+        return departmentMapper.toDepartmentFullDto(department);
+    }
+
+    @Transactional
+    public DepartmentDto update(
+            Long id,
+            String name
+    ) {
+        Department department = departmentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Department with id " + id + " was not found"));
+
+        if (!department.getName().equals(name) && departmentRepository.findByName(name).isPresent()) {
+            throw new RuntimeException("Department with name '" + name + "' already exists");
+        }
+
+        department.setName(name);
+
+        departmentRepository.save(department);
+
+        return departmentMapper.toDepartmentDto(department);
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        Department department = departmentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Department with id " + id + " was not found"));
+
+        if (!department.getEmployees().isEmpty()) {
+            throw new RuntimeException("Cannot delete department with existing employees. Please move them first.");
+        }
+
+        departmentRepository.delete(department);
     }
 }
