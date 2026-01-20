@@ -9,6 +9,5 @@ public class EmployeeShortDto {
     private String firstName;
     private String lastName;
     private String email;
-    private Role role;
     private String departmentName;
 }

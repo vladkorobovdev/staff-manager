@@ -34,4 +34,21 @@ public class EmployeeController {
                 dto.getSalary()
         );
     }
+
+    @PutMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public EmployeeFullDto update(
+            @PathVariable Long id,
+            @RequestBody @Valid EmployeeFullDto dto
+    ) {
+        return employeeService.update(id, dto);
+    }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public void delete(
+            @PathVariable Long id
+    ) {
+        employeeService.delete(id);
+    }
 }
