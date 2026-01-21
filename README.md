@@ -1,10 +1,9 @@
 # 🏢 Staff Manager API
 
-![Java](https://img.shields.io/badge/Java-17%2B-orange)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-green)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue)
+![Java](https://img.shields.io/badge/Java-21%2B-orange)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-4-green)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-blue)
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 **Staff Manager** is a robust and scalable REST API service designed for automating employee and organizational structure management.
 
