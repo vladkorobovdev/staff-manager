@@ -1,4 +1,4 @@
-# 🏢 Staff Manager API
+# Staff Manager API
 
 ![Java](https://img.shields.io/badge/Java-21%2B-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-4-green)
@@ -7,25 +7,25 @@
 
 **Staff Manager** is a robust and scalable REST API service designed for automating employee and organizational structure management.
 
-This project demonstrates modern backend development practices using **Java (Spring Boot 3)**, featuring a secure **JWT-based authentication system**, optimized database interactions, and a clean, layered architecture.
+This project demonstrates modern backend development practices using **Java (Spring Boot 4)**, featuring a secure **JWT-based authentication system**, optimized database interactions, and a clean, layered architecture.
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-### 🔐 Security & Authentication
+### Security & Authentication
 * **JWT Implementation:** Secure authentication using a dual-token system: **Access Token** (short-lived) + **Refresh Token** (persisted in DB).
 * **RBAC (Role-Based Access Control):** Granular permission management:
     * **ADMIN:** Full control over departments, employees, salaries, and roles.
     * **USER:** Access to personal profile, secure password change, and self-management.
 * **Security Best Practices:** BCrypt password hashing, Stateless session management, and secure logout (Refresh Token revocation).
 
-### 👥 Staff Management
+### Staff Management
 * Comprehensive **CRUD operations** for Departments and Employees.
 * **Data Validation:** Strict input validation using Jakarta Validation API (`@Valid`).
 * **Business Logic:** Prevention of logical errors (e.g., unique email checks, protection against deleting departments with active employees).
 
-### ⚙️ Technical Highlights
+### Technical Highlights
 * **API Documentation:** Fully documented endpoints via **Swagger/OpenAPI**.
 * **Database Migrations:** Version control for database schema using **Liquibase**.
 * **DTO Mapping:** Efficient entity-to-DTO mapping using **MapStruct** to prevent over-fetching and sensitive data exposure.
@@ -33,9 +33,9 @@ This project demonstrates modern backend development practices using **Java (Spr
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
-* **Core:** Java 17+, Spring Boot 3.x
+* **Core:** Java 21+, Spring Boot 4
 * **Database:** PostgreSQL, Spring Data JPA
 * **Migrations:** Liquibase
 * **Security:** Spring Security, Java JWT (jjwt)
@@ -45,7 +45,7 @@ This project demonstrates modern backend development practices using **Java (Spr
 
 ---
 
-## 🏗 Architecture & Design Decisions
+## Architecture & Design Decisions
 
 The project focuses on code quality, scalability, and performance:
 
@@ -56,7 +56,7 @@ The project focuses on code quality, scalability, and performance:
 
 ---
 
-## 💾 Database Schema
+## Database Schema
 
 The project uses a normalized relational database structure:
 
@@ -66,7 +66,7 @@ The project uses a normalized relational database structure:
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 * Docker & Docker Compose
@@ -96,15 +96,15 @@ On the first launch, the application automatically initializes an Admin user (vi
 
 ---
 
-## 📖 API Documentation & Testing
+## API Documentation & Testing
 
 The project implements the **OpenAPI 3.0** specification using `springdoc-openapi`. The interactive Swagger UI allows you to explore endpoints, view DTO schemas, and test requests directly from the browser.
 
-### 🔗 Accessing Swagger UI
+### Accessing Swagger UI
 Once the application is running, navigate to:
-👉 **[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)**
+**[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)**
 
-### 🔐 How to Authenticate
+### How to Authenticate
 Most endpoints are secured. To test them within Swagger UI:
 
 1.  **Get a Token:** Expand the `auth-controller` section and execute `POST /auth/login` with valid credentials (e.g., the default admin).
@@ -118,19 +118,19 @@ Most endpoints are secured. To test them within Swagger UI:
 
 ---
 
-## 🔮 Roadmap
+## Roadmap
 
 * [ ] Setup CI/CD pipeline (GitHub Actions).
 * [ ] Implement Audit Logging for administrative actions.
 
 ---
 
-## 📞 Contact
+## Contact
 
 **Uladzislau Korabau** — Java Backend Developer
 
-* 📧 Email: [vladkorobov.work@gmail.com]
-* 💼 LinkedIn: [https://www.linkedin.com/in/uladzislau-korabau-675860265/]
+* Email: [vladkorobov.work@gmail.com]
+* LinkedIn: [https://www.linkedin.com/in/uladzislau-korabau-675860265/]
 
 ---
 *This project was developed for educational purposes and is open for suggestions.*
